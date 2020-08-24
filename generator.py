@@ -20,7 +20,10 @@ class MD5Generator:
     def md5_gen(self):
         with open(self.file) as f:
             for line in f:
-                f.readline()
+                yield line.upper(f.readline())
                 md5_hash = hashlib.md5(line.encode())
                 print('Хэшируемая строка:', line, 'md5 хэш: ', md5_hash.hexdigest())
                 print()
+
+        for item in self.file:
+            print(item)
