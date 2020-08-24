@@ -8,6 +8,8 @@ CU_FILE = 'country_url.json'
 
 
 country_list = []
+wiki_list = []
+
 
 class CountryURL:
     """
@@ -23,17 +25,19 @@ class CountryURL:
 
         # сохраняю локальную копию файла
         with open('countries.json', 'w', encoding='utf-8') as f:
-            json.dump(response, f, ensure_ascii=False, indent=4)
+            data = response.json()
+            #print('***', type(response.json()), response.json()) #list!!!!
+            json.dump(data, f, ensure_ascii=False, indent=4)
 
         # отбираю названия стран
         with open('countries.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
-            print(type(data), data)
+            #print(type(data), data)
             for element in data:
-                # print(element['name']['common'])
+                #print(element['name']['common'])
                 country_list.append(element['name']['common'])
-            # print(len(country_list), country_list)
-        return country_list
+            #print(len(country_list), country_list)
+        #return country_list
 
     def __iter__(self):
         pass
@@ -41,10 +45,9 @@ class CountryURL:
 
     def __next__(self):
         # генерирую страницы Вики
-        wiki_list = []
         for element in country_list:
             wiki_list.append(f'{WIKI_URL}{element}')
-        # print(wiki_list)
+        #print(wiki_list)
 
         # "склеиваю" полный словарь страна-ссылка
         country_url = {}
@@ -61,12 +64,6 @@ class CountryURL:
         print('Список стран со ссылками Википедии успешно сохранен в локальный файл:', CU_FILE)
 
 
-    # def get_request(self, url=JSON_RAW):
-    #     pass
-    #
-    #
-    # def get_country(self):
-    #    pass
 
 
 
