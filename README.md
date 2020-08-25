@@ -1,7 +1,7 @@
 # ADPY-14-project-2-Countries URLs
 
-The project gets the country name from JSON open source file https://github.com/mledoze/countries/blob/master/countries.json and
-    searches for Wiki URL, saves it in local JSON
+The project gets the country name from JSON open source file https://github.com/mledoze/countries/blob/master/countries.json 
+and searches for Wiki URL, saves it in local JSON
 
 ## Description
 

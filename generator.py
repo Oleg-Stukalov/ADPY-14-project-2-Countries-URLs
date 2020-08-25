@@ -1,4 +1,3 @@
-import json
 from iterator import CU_FILE
 import hashlib
 
@@ -23,11 +22,11 @@ class MD5Generator:
     def md5_gen(self):
         with open(self.file) as f:
             for line in f:
-                print('111', line)
-                yield hashlib.md5(line.encode()).hexdigest()
-                #md5_hash = hashlib.md5(line.encode())
-                print('Хэшируемая строка:', line, 'md5 хэш: ', hashlib.md5(line.encode()).hexdigest())
+                #print('111', line)
+                yield print('Хэшируемая строка:', line, 'md5 хэш: ', hashlib.md5(line.encode()).hexdigest())
                 print()
+
+
 
     # for item in file:
     #     print(item)

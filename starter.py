@@ -5,12 +5,9 @@ countryURL1 = CountryURL()
 #countryURL1.__init__()
 countryURL1.__next__()
 md5_generator = MD5Generator(file)
-md5_generator.md5_gen()
+hash_gen = md5_generator.md5_gen()
 
-print(next(md5_generator.md5_gen()))
-print(next(md5_generator.md5_gen()))
-print(next(md5_generator.md5_gen()))
+while True:
+    print(next(hash_gen))
 
-# next(md5_generator.md5_gen())
-# next(md5_generator.md5_gen())
-# next(md5_generator.md5_gen())
+
