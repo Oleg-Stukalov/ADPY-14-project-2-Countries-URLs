@@ -5,8 +5,10 @@ countryURL1 = CountryURL()
 #countryURL1.__init__()
 countryURL1.__next__()
 md5_generator = MD5Generator(file)
-next(md5_generator.md5_gen())
-next(md5_generator.md5_gen())
-next(md5_generator.md5_gen())
-next(md5_generator.md5_gen())
+md5_generator.md5_gen()
+
+print(next(md5_generator.md5_gen()))
+print(next(md5_generator.md5_gen()))
+print(next(md5_generator.md5_gen()))
+
 
