@@ -25,9 +25,10 @@ class MD5Generator:
             for line in f:
                 f.readline()
                 print('111', line)
-                yield line.upper()
+                #yield line.upper()
                 print('***', line.upper())
                 #yield line.upper(f.readline())
+                yield f.readline()
                 md5_hash = hashlib.md5(line.encode())
                 print('Хэшируемая строка:', line, 'md5 хэш: ', md5_hash.hexdigest())
                 print()
