@@ -9,7 +9,7 @@ CU_FILE = 'country_url.json'
 
 country_list = []
 wiki_list = []
-
+stop_counter = 0
 
 class CountryURL:
     """
@@ -18,6 +18,8 @@ class CountryURL:
     """
 
     def __init__(self, url=JSON_RAW):
+        global stop_counter
+        stop_counter = 1
         response = requests.get(url)
         print('Список стран будем брать отсюда:', url)
         # print(response, response.content)
@@ -62,6 +64,12 @@ class CountryURL:
         with open(CU_FILE, 'w', encoding='utf-8') as f:
             json.dump(country_url, f, ensure_ascii=False, indent=4)
         print('Список стран со ссылками Википедии успешно сохранен в локальный файл:', CU_FILE)
+
+        #условие выхода из бесконечного цикла
+        global stop_counter
+        stop_counter += 1
+        if  stop_counter == len(country_list):
+            raise StopIteration
 
 
 
